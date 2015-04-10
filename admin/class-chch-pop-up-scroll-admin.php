@@ -302,7 +302,7 @@ class ChChPopUpScrollAdmin {
 			endforeach
 		 ?>
 		 
-		</select> <a href="http://ch-ch.org/pupro" target="_blank">Get Pro</a>
+		</select> <a href="http://ch-ch.org/puspro" target="_blank">Get Pro</a>
 				 
 		<?php    
 	}
@@ -343,7 +343,7 @@ class ChChPopUpScrollAdmin {
 			endforeach
 		 ?>
 		 
-		</select> <a href="http://ch-ch.org/pupro" target="_blank">Get Pro</a>
+		</select> <a href="http://ch-ch.org/puspro" target="_blank">Get Pro</a>
 				 
 		<?php    
 	}
@@ -524,7 +524,7 @@ class ChChPopUpScrollAdmin {
 					'name' => __( 'Save emails to:', $domain  ),
 					'desc'    => __( '', $domain  ),
 					'id'   => $prefix . 'save_emails',
-					'type' => 'newsletter_select', 
+					'type' => 'chch_pusf_newsletter_select', 
 				),
 				array(
 					'name' => __( 'E-mail Address:', $domain  ),
