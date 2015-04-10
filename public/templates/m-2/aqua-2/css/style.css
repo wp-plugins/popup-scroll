@@ -1,0 +1,94 @@
+/*** Base ***/
+
+.aqua-2 a, .aqua-2 a:hover {
+  color: #090909 !important;
+}
+
+/*** General ***/
+
+.aqua-2.pop-up-cc {
+  color: #090909 !important; 
+}
+.aqua-2 .modal-inner {
+  background: #fff;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+/*** Close Button ***/
+
+.aqua-2 .cc-pu-close {
+  right: 8px !important;
+  top: 8px !important;
+  width: 30px !important;
+  height: 30px !important;
+  background: #fff !important;
+}
+.aqua-2 .cc-pu-close i {
+  color: #59d5f0;
+}
+/*** Headers ***/
+
+/*** Primary ***/
+
+.aqua-2 .modal-inner h2 {
+  font-weight: 300 !important;
+  font-size: 1.8em !important;
+  line-height: 1.34 !important;
+  color: #090909 !important;
+  font-family: 'Roboto', sans-serif !important; 
+  text-transform: none !important;
+}
+
+/*** Secondary ***/
+
+.aqua-2 .modal-inner h3 {
+  font-size: 1.1em !important;
+  line-height: 1.6em !important;
+  font-weight: 300 !important;
+  color: #090909 !important;
+  font-family: 'Roboto', sans-serif !important;
+  text-transform: none !important;
+}
+
+.aqua-2 .modal-inner p {  
+	font-family: 'Roboto', sans-serif !important;
+	color: #989898 !important;
+	padding:0 !important;
+}
+
+/*** Content ***/
+
+/*** Privacy ***/
+
+/*** Form ***/
+
+.aqua-2 .cc-pu-form-control {
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 5px !important;
+  background: #fff !important;
+  font-family: "Roboto", sans-serif !important;
+}
+
+.aqua-2 .cc-pu-smart-form .cc-pu-btn, .aqua-2 .cc-pu-smart-form .cc-pu-btn:hover {
+  background: #59d5f0 !important;
+  color: #fff !important;
+  padding: 13px 5px !important; 
+  font-weight: 700 !important;
+  font-family: 'Roboto', sans-serif !important;
+  text-transform: none !important; 
+  text-align: center !important; 
+  display: block !important; 
+  width: 100% !important; 
+  border-radius: 5px !important;
+}
+
+.aqua-2.pop-up-cc .cc-pu-thank-you {
+    background-color: #59d5f0 !important;
+}
+.aqua-2.pop-up-cc .cc-pu-thank-you p { 
+    color: #fff !important;
+}
+.aqua-2.pop-up-cc .cc-pu-thank-you:after {  
+     border-top: 8px solid #59d5f0 !important;
+}
+

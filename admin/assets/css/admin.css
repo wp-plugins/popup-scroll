@@ -1,0 +1,205 @@
+.chch-pusf-tab-2, .chch-pusf-tab-3,.hide-section {
+	display:none;	
+}
+
+.chch-pusf-customize-form {
+	display:none;	
+    background: none repeat scroll 0px 0px transparent;
+    z-index: 100099;
+    position: fixed;
+    overflow: visible;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    min-width: 0px;
+	margin-left: 300px;
+}
+
+.cc-pu-customize-preview {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	height: 100%;
+	background:#fff;	
+}
+
+.chch-pusf-customize-controls {
+	box-sizing: border-box;
+	position: fixed;
+	width: 300px;
+	height: 100%;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	padding: 0px;
+	margin: 0px;
+	z-index: 10;
+	overflow: auto;
+	background: none repeat scroll 0% 0% #EEE;
+	border-right: medium none;	
+}
+
+.chch-pusf-customize-header-actions {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	height: 45px;
+	padding: 0px 15px;
+	line-height: 45px;
+	z-index: 10;
+	margin: 0px;
+	border-top: medium none;
+	box-shadow: none;
+	border-bottom: 1px solid #DDD;
+}
+
+.chch-pusf-customize-close{
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 45px;
+	height: 45px;
+	padding-right: 2px;
+	background: none repeat scroll 0% 0% #EEE;
+	border-right: 1px solid #DDD;
+	color: #444;
+	cursor: pointer;
+	transition: color 0.1s ease-in-out 0s, #000 0.1s ease-in-out 0s;
+	text-decoration:none;
+}
+
+.chch-pusf-customize-close:before {
+    font: 400 22px/1 dashicons;
+    content: "";
+    position: relative;
+    top: 7px;
+    left: 13px;
+}
+
+.chch-pusf-customize-close:hover {
+    background: none repeat scroll 0% 0% #DDD;
+    border-color: #CCC;
+    color: #000;
+    outline: 0px none;
+    box-shadow: none;
+}
+
+.chch-pusf-customize-header-actions .button-primary {
+    float: right;
+    margin-top: 9px;
+}
+
+.chch-pusf-options-overlay {
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: absolute;
+	top: 45px;
+	bottom: 45px;
+	left: 0px;
+	right: 0px;
+}
+
+.chch-pusf-options-overlay .accordion-section-content {
+	padding:0 !important;	
+}
+
+.chch-pusf-customize-info{
+	color: #555;
+    background-color: #FFF;
+    border-bottom: 1px solid #EEE;	
+	padding: 8px 12px;
+}
+.template-title {
+	font-size: 20px;
+	font-weight: 200;
+	line-height: 24px;
+	display: block;	
+}
+
+.accordion-section-title {
+    color: #555 !important;
+    background-color: #FFF;
+    border-bottom: 1px solid #EEE;
+	border-right: 0 !important;
+	padding: 10px 10px 11px 14px !important;
+	line-height: 21px;
+	font-size: 14px;
+}
+
+.accordion-section-title:after{
+    color: #555 !important; 
+}
+.accordion-section-title.open:after {
+	content: "";	
+}
+
+
+.customize-control-title {
+    display: block;
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 400;
+    margin-bottom: 3px;
+	margin-top: 15px;
+}
+.accordion-section-content {
+	background: #FAFAFA;
+}
+.accordion-section-content h4 {
+	font-size: 14px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #ECECEC;
+	text-align: center;
+	background: #F0F0F0;
+	margin:0 0 10px 0;
+}
+
+
+.chch-pusf-fields-wrapper {
+	position:relative;	
+	padding: 10px 20px;
+}
+
+.chch-pusf-fields-wrapper:hover .chch-pusf-overlay{
+	display:block;
+}
+
+.chch-pusf-overlay {
+	position:absolute;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.7);
+	display:none;	
+	z-index:9999;
+	left:0;
+	top:0;
+}
+
+.chch-pusf-overlay a{
+	position:absolute;
+	top:50%;
+	text-align:center;
+	display:block;
+	width:100%;
+	left:0;
+	text-decoration:none;
+	color:#fff;
+	font-weight:700;
+	font-family:Open Sans, sans-serif;
+	font-size:16px;
+	line-height:18px;
+	margin-top:-9px;
+}
+
+.chch-pusf-overlay a:hover{
+	text-decoration:underline;
+}
+
+.wrap div.updated, .wrap div.error, .media-upload-form div.error {
+	width: 71.5%;
+}

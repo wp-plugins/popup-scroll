@@ -1,0 +1,83 @@
+/*** Base ***/
+
+.red-2 a, .red-2 a:hover {
+  color: #fff !important;  
+  font-weight:bold !important;
+}
+
+/*** General ***/
+
+.red-2.pop-up-cc {
+  color: #fff !important;  
+}
+.red-2 .modal-inner {
+  background: #ea3434;
+  font-family: 'Signika', sans-serif !important;
+}
+
+/*** Close Button ***/
+
+.red-2 .cc-pu-close {
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background: #ea3434 !important;
+}
+.red-2 .cc-pu-close i {
+  color: #fff !important;
+}
+/*** Headers ***/
+
+/*** Primary ***/
+
+.red-2 .modal-inner h2 {
+  font-weight: 700 !important;
+  font-size: 1.6em !important;
+  line-height: 1.34 !important;
+}
+
+/*** Secondary ***/
+
+.red-2 .modal-inner h3 {
+  font-size: 1.1em !important;
+  line-height: 1.6em !important;
+  font-weight: 300 !important;
+}
+
+/*** Content ***/
+
+/*** Privacy ***/
+
+/*** Form ***/
+
+.red-2 .cc-pu-form-control {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  font-family: "Signika", sans-serif !important;
+  margin-bottom: 0 !important;
+}
+.red-2 .cc-pu-smart-form .cc-pu-btn, .red-2 .cc-pu-smart-form .cc-pu-btn:hover {
+  background: #000 !important;
+  color: #fff !important;
+  padding: 13px 5px !important; 
+  font-weight: 700 !important;
+  font-family: 'Signika', sans-serif !important;
+  text-transform: uppercase !important; 
+  text-align: center !important; 
+  display: block !important; 
+  width: 100% !important; 
+  border-radius: 0 !important;
+}
+
+.red-2.pop-up-cc .cc-pu-thank-you {
+    background-color: #000 !important;
+}
+.red-2.pop-up-cc .cc-pu-thank-you p { 
+    color:#fff !important;
+}
+.red-2.pop-up-cc .cc-pu-thank-you:after {  
+     border-top: 8px solid #000 !important; 
+}
+

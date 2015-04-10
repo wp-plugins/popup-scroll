@@ -1,0 +1,119 @@
+.pop-up-cc {
+  /* _____ GLOBAL DEFAULTS _____ */
+}
+.pop-up-cc *,
+.pop-up-cc :before,
+.pop-up-cc :after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pop-up-cc .list-inline {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.pop-up-cc .list-inline:before, .pop-up-cc .list-inline:after {
+  content: " ";
+  display: table;
+}
+.pop-up-cc .list-inline:after {
+  clear: both;
+}
+.pop-up-cc .list-inline li {
+  float: left;
+  display: block;
+}
+.pop-up-cc .list-unstyled {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.pop-up-cc .list-unstyled:before, .pop-up-cc .list-unstyled:after {
+  content: " ";
+  display: table;
+}
+.pop-up-cc .list-unstyled:after {
+  clear: both;
+}
+.pop-up-cc .list-unstyled li {
+  display: block;
+}
+.pop-up-cc .center-list {
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.pop-up-cc .center-list > li {
+  display: inline-block;
+  margin: 0 auto;
+}
+.pop-up-cc .table-list {
+  display: table;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.pop-up-cc .table-list > li {
+  display: table-cell;
+}
+.pop-up-cc figure {
+  margin: 0;
+  padding: 0;
+}
+.pop-up-cc figure img {
+  max-width: 100%;
+}
+.pop-up-cc figure.text-wrap {
+  text-align: center;
+  position: relative;
+}
+.pop-up-cc figure.text-wrap p {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 75px;
+  font-size: 18px;
+}
+.pop-up-cc .cf:before, .pop-up-cc .cf:after {
+  content: " ";
+  display: table;
+}
+.pop-up-cc .cf:after {
+  clear: both;
+}
+.pop-up-cc .text-left {
+  text-align: left;
+}
+.pop-up-cc .text-center {
+  text-align: center;
+}
+.pop-up-cc .text-right {
+  text-align: right;
+}
+.pop-up-cc .pull-left {
+  float: left;
+}
+.pop-up-cc .pull-right {
+  float: right;
+}
+.pop-up-cc .tc {
+  display: table-cell;
+  vertical-align: middle;
+}
+.pop-up-cc .visible-mobile {
+  display: none !important;
+}
+.pop-up-cc button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+ 
+
+#poststuff .modal-inner h2, #poststuff .modal-inner h3  {
+    color: inherit;
+    float: none;
+}

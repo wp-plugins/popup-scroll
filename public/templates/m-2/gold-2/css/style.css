@@ -1,0 +1,87 @@
+/*** Base ***/
+
+.gold-2 a, .gold-2 a:hover {
+  color: #090909 !important;  
+}
+
+/*** General ***/
+
+.gold-2.pop-up-cc {
+  color: #989898 !important;  
+}
+.gold-2 .modal-inner {
+  background: #fff;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+/*** Close Button ***/
+
+.gold-2 .cc-pu-close {
+  right: 8px;
+  top: 8px;
+  width: 30px;
+  height: 30px;
+  background: #ffe96d !important;
+}
+.gold-2 .cc-pu-close i {
+  color: #090909 !important;
+}
+/*** Headers ***/
+
+/*** Primary ***/
+
+.gold-2 .modal-inner h2 {
+  font-weight: 300 !important;
+  font-size: 1.6em !important;
+  line-height: 1.34 !important;
+  font-family: 'Playfair Display', serif !important;
+  color: #000 !important;
+  text-transform: none !important;
+}
+
+/*** Secondary ***/
+
+.gold-2 .modal-inner h3 {
+  font-size: 1.1em !important;
+  line-height: 1.8em !important;
+  font-weight: 300 !important;
+  font-family: 'Playfair Display', sans-serif !important;
+   color: #000 !important;
+}
+
+/*** Content ***/
+
+/*** Privacy ***/
+
+/*** Form ***/
+
+.gold-2 .cc-pu-form-control {
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.gold-2 .cc-pu-smart-form .cc-pu-btn, .gold-2 .cc-pu-smart-form .cc-pu-btn:hover {
+  background: #ffe96d !important;
+  color: #090909 !important;
+  padding: 13px 5px !important; 
+  font-weight: 700 !important;
+  font-family: 'Playfair Display', sans-serif !important;
+  text-transform: uppercase !important; 
+  text-align: center !important; 
+  display: block !important; 
+  width: 100% !important; 
+  border-radius: 0;
+}
+
+.gold-2.pop-up-cc .cc-pu-thank-you {
+    background-color: #ffe96d !important;
+}
+.gold-2.pop-up-cc .cc-pu-thank-you p { 
+    color: #090909 !important;
+}
+.gold-2.pop-up-cc .cc-pu-thank-you:after {  
+     border-top: 8px solid #ffe96d !important; 
+}
+
