@@ -302,7 +302,7 @@ class ChChPopUpScrollAdmin {
 			endforeach
 		 ?>
 		 
-		</select> <a href="http://ch-ch.org/pupro" target="_blank">Get Pro</a>
+		</select> <a href="http://ch-ch.org/puspro" target="_blank">Get Pro</a>
 				 
 		<?php    
 	}
@@ -343,7 +343,7 @@ class ChChPopUpScrollAdmin {
 			endforeach
 		 ?>
 		 
-		</select> <a href="http://ch-ch.org/pupro" target="_blank">Get Pro</a>
+		</select> <a href="http://ch-ch.org/puspro" target="_blank">Get Pro</a>
 				 
 		<?php    
 	}
@@ -524,7 +524,7 @@ class ChChPopUpScrollAdmin {
 					'name' => __( 'Save emails to:', $domain  ),
 					'desc'    => __( '', $domain  ),
 					'id'   => $prefix . 'save_emails',
-					'type' => 'newsletter_select', 
+					'type' => 'chch_pusf_newsletter_select', 
 				),
 				array(
 					'name' => __( 'E-mail Address:', $domain  ),
@@ -767,7 +767,7 @@ class ChChPopUpScrollAdmin {
 	 	$screen = get_current_screen();
 		if ( 'post' == $screen->base && 'chch-pusf' === $screen->post_type) { 
 			
-			$js ="<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Lora:400,700|Open+Sans:400,300,700|Oswald:700,300|Roboto:400,700,300|Signika:400,700,300' rel='stylesheet' type='text/css'>";
+			$js ="<link href='//fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Lora:400,700|Open+Sans:400,300,700|Oswald:700,300|Roboto:400,700,300|Signika:400,700,300' rel='stylesheet' type='text/css'>";
 			echo $js;
 		}
 	 } 

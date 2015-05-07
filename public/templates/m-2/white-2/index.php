@@ -16,7 +16,7 @@
 
 <article class="pop-up-cc m-2 white-2">
 	<div class="modal-inner">
-		<?php $views_control = get_post_meta($id,'_chch_pusf_show_only_once',true); ?>
+		<?php $views_control = get_post_meta($id,'_chch_pusf_show_once_per',true); ?>
 		<a class="cc-pu-close cc-pusf-close" data-modalId="<?php echo $id; ?>" data-views-control="yes" data-expires-control="<?php echo $views_control ?>">  <i class="fa fa-times"></i> </a>
 		
 		<?php $content = $template_options['contents']; ?>

@@ -607,7 +607,7 @@ class ChChPopUpScrollFreePeview {
 		if(isset($fields['disable'])){
 			$section .= '
 				<div class="chch-pusf-overlay">
-					<a href="http://ch-ch.org/pupro" target="_blank">AVAILABLE IN PRO</a>
+					<a href="http://ch-ch.org/puspro" target="_blank">AVAILABLE IN PRO</a>
 				</div>'; 	
 		}
 		

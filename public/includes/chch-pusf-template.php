@@ -108,7 +108,7 @@ class ChChPUSFTemplate {
 		$script = '<script type="text/javascript">';
 		$script .= 'jQuery(function($) {';
 		
-		$script .= 'if(!$.cookie("shown_modal_'.$id.'")){ ';
+		$script .= 'if(!Cookies.get("shown_modal_'.$id.'")){ ';
 
 		$script .= $mobile_header;
 		
