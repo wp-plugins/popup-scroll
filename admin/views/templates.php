@@ -74,7 +74,7 @@
 							</div>
 							<h3 class="theme-name"><span>Active:</span>	<?php echo $template['title']; ?></h3>
 							<div class="theme-actions">
-								<a  href="#" class="chch-pusf-template-edit button button-primary hide" data-template="<?php echo $template['id']; ?>" data-base="<?php echo $template['base']; ?>" data-postid="<?php echo get_the_ID(); ?>" data-nounce="<?php echo wp_create_nonce('chch-pusf-preview-'.$template['id']); ?>">Customize</a>
+								<a  href="#" class="chch-pusf-template-edit button button-primary" data-template="<?php echo $template['id']; ?>" data-base="<?php echo $template['base']; ?>" data-postid="<?php echo get_the_ID(); ?>" data-nounce="<?php echo wp_create_nonce('chch-pusf-preview-'.$template['id']); ?>">Customize</a>
 							</div>
 						 <?php 
 						 	$preview = new ChChPopUpScrollFreePeview($template['id'],$template['base'],$template['title']); 
@@ -93,7 +93,7 @@
 							<h3 class="theme-name"><?php echo $template['title']; ?></h3>
 							<div class="theme-actions"> 
 									<a  href="#" class="chch-pusf-template-acivate button button-primary" data-template="<?php echo $template['id']; ?>" data-base="<?php echo $template['base']; ?>">Activate</a> 
-									<a  href="#" class="chch-pusf-template-edit button button-primary hide" data-template="<?php echo $template['id']; ?>" data-base="<?php echo $template['base']; ?>" data-postid="<?php echo get_the_ID(); ?>" data-nounce="<?php echo wp_create_nonce('chch-pusf-preview-'.$template['id']); ?>">Customize</a>
+									<a  href="#" class="chch-pusf-template-edit button button-primary" data-template="<?php echo $template['id']; ?>" data-base="<?php echo $template['base']; ?>" data-postid="<?php echo get_the_ID(); ?>" data-nounce="<?php echo wp_create_nonce('chch-pusf-preview-'.$template['id']); ?>">Customize</a>
 							</div> 
 						<?php 
 						 	$preview = new ChChPopUpScrollFreePeview($template['id'],$template['base'],$template['title']); 

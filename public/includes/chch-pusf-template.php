@@ -112,7 +112,7 @@ class ChChPUSFTemplate {
 
 		$script .= $mobile_header;
 		
-		$script .= '$(window).on("scroll", function() { var y_scroll_pos = window.pageYOffset;';
+		$script .= '$(window).on("scroll", function() { var chch_scroll_pos = window.pageYOffset;';
 		
 		switch($scroll_type): 
 			case 'px':
@@ -120,7 +120,7 @@ class ChChPUSFTemplate {
 				
 				$scroll_head = '  	
    		 			scroll_pos_test = '.$scroll_px .'; 
- 						if(y_scroll_pos > scroll_pos_test) { ';
+ 						if(chch_scroll_pos > scroll_pos_test) { ';
     		$scroll_footer = '}';
 			break;
 			
@@ -128,11 +128,11 @@ class ChChPUSFTemplate {
 				$scroll_percent = get_post_meta($id, '_chch_pusf_scroll_percent',true);
 				
 				$scroll_head = '
-					wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
+					winTop = $(window).scrollTop(), docHeight = $(document).height(), winHeight = $(window).height();
 				
-    			scrolltrigger = '.($scroll_percent / 100).'; 
+    			scrollTrigger = '.($scroll_percent / 100).'; 
 				
-				if  ((wintop/(docheight-winheight)) > scrolltrigger) { ';
+				if  ((winTop/(docHeight-winHeight)) > scrollTrigger) { ';
 				$scroll_footer = '}';
 			break;
 			
@@ -144,7 +144,7 @@ class ChChPUSFTemplate {
 				
 				if(scrollEl.length) { 
 					scrollElOffset = scrollEl.offset().top; 
-					if (y_scroll_pos > scrollElOffset) { ';
+					if (chch_scroll_pos > scrollElOffset) { ';
 				$scroll_footer = '}}';
 			break;
 		endswitch;
@@ -153,12 +153,12 @@ class ChChPUSFTemplate {
 		$script .= $scroll_head;
 		$script .= '$("#modal-'.$id.'").not(".chch_shown").show("fast"); 
 			$("#modal-'.$id.'").addClass("chch_shown");
-		if($(window).width() < 768){	
-			windowPos = $(window).scrollTop();
-			windowHeight = $(window).height();
-			popupHeight = $( "#modal-'.$id.' .modal-inner" ).outerHeight();
-			popupPosition = windowPos + ((windowHeight - popupHeight)/2);
-			$( "#modal-'.$id.' .pop-up-cc").css("top",Math.abs(popupPosition)); 
+		  if($(window).width() < 768){	
+  			windowPos = $(window).scrollTop();
+  			windowHeight = $(window).height();
+  			popupHeight = $( "#modal-'.$id.' .modal-inner" ).outerHeight();
+  			popupPosition = windowPos + ((windowHeight - popupHeight)/2);
+  			$( "#modal-'.$id.' .pop-up-cc").css("top",Math.abs(popupPosition)); 
 		}';
 		$script .= $scroll_footer;
 		$script .= '});';

@@ -1,5 +1,10 @@
-.chch-pusf-tab-2, .chch-pusf-tab-3,.hide-section {
+ 
+.chch-pusf-tab-2,.hide-section {
 	display:none;	
+}
+
+.wrap div.updated {
+width: 71.5% !important;
 }
 
 .chch-pusf-customize-form {
@@ -16,7 +21,6 @@
     min-width: 0px;
 	margin-left: 300px;
 }
-
 .cc-pu-customize-preview {
 	position: absolute;
 	left: 0px;
@@ -200,6 +204,167 @@
 	text-decoration:underline;
 }
 
-.wrap div.updated, .wrap div.error, .media-upload-form div.error {
-	width: 71.5%;
+.wrap div.updated {
+	width: 71.5% !important;	
+}
+
+/*** General ***/
+
+#post-body-content, #postbox-container-2 {
+	  width: 95%!important;
+}
+h2.nav-tab-wrapper, h3.nav-tab-wrapper {
+	margin-top: 35px!important;
+}
+.wrap div.updated {
+  width: 69.7%!important;
+}
+#poststuff .theme-browser .theme {
+	width: 48%!important;
+}
+.theme-browser .theme:nth-child(3n) {
+  margin-right: 4%!important;
+}
+.theme-browser .theme:nth-child(4n), .theme-browser .theme:nth-child(2n) {
+  margin-right: 0!important;
+}
+#poststuff .theme-browser .theme .theme-name {
+	font-size: 13px!important;
+}
+a.nav-tab:focus {
+  outline: 0;
+  box-shadow: none;
+}
+#_chch_pop_up_page {
+	width: 90%;
+	height: 150px;
+}
+.cmb_metabox_description, #_chch_pop_up_email + span {
+  	display: inline-block;
+  	max-width: 84%!important;
+  	background: rgba(255, 255, 255, 0.7);
+  	padding: 15px;
+  	margin-top: 10px!important;
+  	border: 1px dashed rgb(204, 204, 204)!important;
+}
+.form-table.cmb_metabox tbody th {
+	width: 27%!important;
+	text-align: left;
+}
+
+/*** Options Metaboxes ***/
+
+#chch-metabox-settings label,
+#chch-metabox-advanced label
+ {
+  display: inline-block!important;
+  margin-top: 9px;
+}
+.settings-box {
+	float: right;
+
+}
+.settings-box.input-box {
+	display: inline-block;
+}
+.settings-box.input-box,
+.settings-box.select-box {
+	width: 60%!important;
+}
+.settings-box.checkbox-box {
+	float: left!important;
+	margin: 9px 20px 0 0 !important;
+}
+.chch-pusf-tab .dashicons  {
+	color: #555555!important;
+	font-size: 18px!important;
+  	margin-right: 3px!important;
+  	margin-top: 1px!important;
+}
+.nav-tab .dashicons {
+	font-size: 18px!important;
+	margin-top: 3px!important;
+}
+.form-table td {
+	padding: 10px;
+}
+#titlediv #title-prompt-text {
+	font-size: 1.4em!important;
+}
+
+/*** Customizer ***/
+
+label.chch-pusf-customizer-class-switcher span,
+label.chch-pusf-option-active.chch-pusf-customizer-checkbox span,
+label.chch-pusf-option-active.chch-pusf-customizer-checkbox span
+ {
+	display: inline-block!important;
+	width: 85%!important;
+}
+.chch-pusf-customizer-class-switcher input ,
+.chch-pusf-customizer-checkbox  input
+ {
+  display: inline-block;
+  float: left;
+  margin-top: 13px!important;
+  margin-right: 10px!important;;
+}
+.chch-pusf-customize-controls {
+	 border-right: 1px solid rgb(204, 204, 204)!important;
+}
+
+/*** Colors ***/
+input[type=checkbox], input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=radio], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea,
+.postbox
+ {
+	box-shadow: none!important;
+	-webkit-box-shadow: none!important;
+}
+#poststuff {
+	background: #fff;
+	border: 1px solid rgb(204, 204, 204);
+	border-top: 0;
+	padding: 20px 0 0 20px;
+}
+.nav-tab {
+	 border-bottom: 1px solid #ccc!important;
+}
+.nav-tab.nav-tab-active, .nav-tab.nav-tab-active:hover {
+	border-bottom: 1px solid #FFFFFF !important;
+	background: #FFFFFF!important;
+}
+.nav-tab:hover {
+	background: #f1f1f1!important;
+}
+#post-body.columns-2 #postbox-container-1 {
+	float: right;
+	 margin-right: -240px;
+	width: 240px;
+}
+.theme-browser .theme .theme-actions {
+  border-left: 0!important;
+  width: 94.6%!important;
+  text-align: right!important;
+}
+.chch-single-slide:nth-child(odd) {
+	background: rgba(250, 250, 250, 0.3) !important;
+}
+.chch-single-slide:nth-child(even) {
+	background: rgba(250, 250, 250, 0.6) !important;
+}
+.chch-slides-repeater .chch-slide-counter {
+	background: rgba(241, 241, 241, 0.32) !important;
+}
+.postbox  {
+  background: rgba(250, 250, 250, 0.3) !important;
+}
+#poststuff .theme-browser .theme .theme-name {
+  background: rgba(250, 250, 250, 0.6) !important;
+}
+#poststuff .theme-browser .theme.active .theme-name {
+  background: rgba(66, 66, 66, 1) !important;
+
+}
+.theme-browser .theme.active .theme-actions {
+	background: transparent !important;
 }

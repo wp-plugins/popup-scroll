@@ -4,7 +4,7 @@ Contributors: chopchoporg
 Tags: popup, popups, scroll, popup scroll, pop-up scroll, scrolling, on scroll, pop-up, pop-ups, pop up, pop ups, modal, modal window, wordpress popup, responsive popup, conversion, mailing
 Requires at least: 3.5.1
 Tested up to: 4.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -156,8 +156,12 @@ Contact shop@chop-chop.org if you have any questions or wish to provide feedback
 
 == Changelog ==
 
-= 1.0.0 =
-New Cookies version 
+= 1.0.2 =
+ADD: New admin css
+FIX: Customize button
+
+= 1.0.1 =
+ADD: New Cookies version 
 
 = 1.0.0 =
 First release

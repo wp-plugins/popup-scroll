@@ -450,7 +450,7 @@ class ChChPopUpScrollAdmin {
 				), 
 				array(
 					'name' => __( 'Auto close the pop-up after the sign-up', $domain  ),
-					'desc'    => __( '', $domain  ),
+					'desc'    => __( 'The pop-up will close after a given number of seconds after somebody has signed up.', $domain  ),
 					'id'   => $prefix . 'auto_closed',
 					'type' => 'checkbox', 
 				),  
