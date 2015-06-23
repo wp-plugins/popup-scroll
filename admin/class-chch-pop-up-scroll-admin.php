@@ -238,16 +238,25 @@ class ChChPopUpScrollAdmin {
 		$all_pages = $this->get_all_pages();
 		 ?>
 		<select class="cmb_select" name="<?php echo $field_args['_name']; ?>[]" id="<?php echo $field_args['_id']; ?>" multiple="multiple">	
-			<?php 
-			$selected = '';
-			if(!empty($escaped_value) && is_array($escaped_value)){
-				if(in_array( 'chch_home',$escaped_value)) {
-					$selected = 'selected';	
+       	<?php
+         
+         $custom_pages = array(
+          'chch_home' => 'Home (Latest Posts)',
+          'chch_woocommerce_shop' => 'Woocommerce (Shop Page)',
+          'chch_woocommerce_category' => 'Woocommerce (Category Page)',
+          'chch_woocommerce_products' => 'Woocommerce (Single Product)',
+         );   
+      
+			foreach($custom_pages as $value => $title):
+				$selected = '';
+				if(!empty($escaped_value) && is_array($escaped_value)){
+					if(in_array( $value,$escaped_value)) {
+						$selected = 'selected';	
+					} 
 				}
-			}
-			?>
-			<option value="chch_home" <?php echo $selected ?>>Home (Latest Posts)</option>
-		<?php
+			 	echo '<option value="'.$value.'" '.$selected .'>'.$title.'</option>	';
+			endforeach;
+      
 			foreach($all_pages as $value => $title):
 				$selected = '';
 				if(!empty($escaped_value) && is_array($escaped_value)){

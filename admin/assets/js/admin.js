@@ -222,7 +222,7 @@ jQuery(document).ready(function($) {
   $('.chch-pusf-image-upload').click(function(e) {
 
     e.preventDefault();
-    var target = $(this).attr('data-target');
+    target = $(this).attr('data-target');
 
     //If the uploader object has already been created, reopen the dialog
     if (custom_uploader) {
