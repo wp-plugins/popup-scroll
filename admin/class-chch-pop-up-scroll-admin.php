@@ -684,7 +684,8 @@ class ChChPopUpScrollAdmin {
 				'subheader' => wp_kses_post(str_replace($p_array, '', $subheader_content)),   
 				'content' => $main_content,  
 				'privacy_message' => wp_kses_post(str_replace($p_array, '', $privacy_message_content)),  
-				'privacy_link' => sanitize_text_field($_REQUEST['_'.$template.'_contents_privacy_link']),
+				'privacy_link' => sanitize_text_field($_REQUEST['_'.$template.'_contents_privacy_link']),  
+				'privacy_link_label' => sanitize_text_field($_REQUEST['_'.$template.'_contents_privacy_link_label']), 
 				'thank_you' => sanitize_text_field($_REQUEST['_'.$template.'_contents_thank_you']),     
 			); 
 			 

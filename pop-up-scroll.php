@@ -11,7 +11,7 @@
  * Plugin Name:       Pop-Up CC - Scroll FREE
  * Plugin URI:        http://shop.chop-chop.org
  * Description:       An elegant Pop Up in just a few clicks.
- * Version:           1.1.0
+ * Version:           1.2.0
  * Author:            Chop-Chop.org
  * Author URI:        http://chop-chop.org
  * Text Domain:       cc-pop-up-locale

@@ -207,6 +207,13 @@ class ChChPopUpScrollFreePeview {
 							'attr' => 'href',
 							'desc'   => 'Privacy Policy Link (if there is no URL provided, the link will not be displayed):',
 						),  
+            array(
+              'type' => 'text',
+              'action' => 'text',
+              'name' => 'privacy_link_label',
+              'target' => '.cc-pu-privacy-info a',
+              'desc' => 'Privacy Policy Link Label',
+              ),
 						array(
 							'type'	 => 'text', 
 							'action' => 'text',
@@ -1066,11 +1073,7 @@ class ChChPopUpScrollFreePeview {
 	 * @return    $option_html - html
 	 */
 	function build_field_values($atts, $options_group){ 
-		$option = '';
-		if(isset($this->template_options[$options_group][$atts['name']]))
-		{
-			$option = $this->template_options[$options_group][$atts['name']];	
-		}
+		 $option = $this->template->get_template_option( $options_group, $atts['name'] ); 
 		
 		switch($atts['type']):
 			case 'select':

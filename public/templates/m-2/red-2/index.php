@@ -62,8 +62,8 @@
 		
 		<?php endif;?>
 		<footer class="cc-pu-privacy-info"> 
-			<?php if(!empty($content['privacy_link'])):?>
-			<a href="<?php echo $content['privacy_link'];?>">Privacy policy</a>
+			<?php if(!empty($content['privacy_link']) || is_admin()):?>
+			<a href="<?php echo $content['privacy_link'];?>"><?php echo $this-> get_template_option('contents','privacy_link_label'); ?></a>
 			<?php endif;?>
 			<div class="cc-pu-privacy-section cc-pu-content-styles"> 
 				<p><?php echo $content['privacy_message'];?></p>
