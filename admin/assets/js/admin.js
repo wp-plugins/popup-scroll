@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
 
 
   $('#_chch_pusf_auto_closed').on('change', function() {
-    var target = $('.cmb_id__chch_pusf_close_timer');
+    var target = $('.cmb2-id--chch-pusf-close-timer');
 
     if ($(this).is(':checked')) {
       $(target).removeClass('hide-section');

@@ -14,6 +14,11 @@ if ( ! class_exists( 'ChChPopUpScrollFreePeview' ) )
 
 if ( ! class_exists( 'ChChPUSFTemplate' ) )
     require_once( CHCH_PUSF_PLUGIN_DIR . 'public/includes/chch-pusf-template.php' );
+    
+if ( file_exists( CHCH_PUSF_PLUGIN_DIR . 'admin/includes/CMB2/init.php' ) ) {
+  require_once CHCH_PUSF_PLUGIN_DIR . 'admin/includes/CMB2/init.php';
+}
+
 /**
  * @package ChChPopUpScroll
  * @author 	Chop-Chop.org <shop@chop-chop.org>
@@ -44,12 +49,11 @@ class ChChPopUpScrollAdmin {
 		add_filter( 'post_updated_messages',  array( $this, 'chch_pusf_post_type_messages') );
 		
 		// Register Post Type Meta Boxes and fields
-		add_action( 'init', array( $this, 'chch_pusf_initialize_cmb_meta_boxes'), 9999 );
-		add_action( 'cmb_render_chch_pusf_pages_select', array( $this, 'chch_pusf_render_pages_select'), 10, 5  );
-		add_action( 'cmb_render_chch_pusf_cookie_select', array( $this, 'chch_pusf_render_cookie_select'), 10, 5  ); 
-		add_action( 'cmb_render_chch_pusf_newsletter_select', array( $this, 'chch_pusf_render_newsletter_select'), 10, 5  ); 
-		add_action( 'add_meta_boxes_chch-pusf', array( $this, 'chch_pusf_metabox' ));
-		add_filter( 'cmb_meta_boxes', array( $this, 'chch_pusf_post_type_metaboxes') );
+		add_action( 'cmb2_init', array( $this, 'chch_pusf_initialize_cmb_meta_boxes') );
+		add_filter( 'cmb2_render_chch_pusf_pages_select', array( $this, 'chch_pusf_render_pages_select'), 10, 5  );
+		add_filter( 'cmb2_render_chch_pusf_cookie_select', array( $this, 'chch_pusf_render_cookie_select'), 10, 5  ); 
+		add_filter( 'cmb2_render_chch_pusf_newsletter_select', array( $this, 'chch_pusf_render_newsletter_select'), 10, 5  ); 
+		add_action( 'add_meta_boxes_chch-pusf', array( $this, 'chch_pusf_metabox' )); 
 		
 		
 		// Save Post Data
@@ -222,140 +226,254 @@ class ChChPopUpScrollAdmin {
 	 *
 	 * @since  0.1.0 
 	 */
-	function chch_pusf_initialize_cmb_meta_boxes() {
- 		if ( ! class_exists( 'cmb_Meta_Box' ) )
-			require_once( CHCH_PUSF_PLUGIN_DIR . 'admin/includes/Custom-Metaboxes-and-Fields-for-WordPress-master/init.php' ); 
-	}
-	
-	
-	/**
-	 * Return a pages_select field for CMB
-	 *
-	 * @since     1.0.0
-	 * 
-	 */
-	function chch_pusf_render_pages_select( $field_args, $escaped_value, $object_id, $object_type, $field_type_object ) {
-		$all_pages = $this->get_all_pages();
-		 ?>
-		<select class="cmb_select" name="<?php echo $field_args['_name']; ?>[]" id="<?php echo $field_args['_id']; ?>" multiple="multiple">	
-       	<?php
-         
-         $custom_pages = array(
-          'chch_home' => 'Home (Latest Posts)',
-          'chch_woocommerce_shop' => 'Woocommerce (Shop Page)',
-          'chch_woocommerce_category' => 'Woocommerce (Category Page)',
-          'chch_woocommerce_products' => 'Woocommerce (Single Product)',
-         );   
+	function chch_pusf_initialize_cmb_meta_boxes() { 
+	 $domain = $this->plugin_slug;
+    $prefix = '_chch_pusf_';
+
+    $general_metabox = new_cmb2_box( array(
+      'id' => 'chch-pus-metabox-general',
+      'title' => __( 'GENERAL', $domain ),
+      'object_types' => array( 'chch-pusf' ),
+      'priority'   => 'low',
+      ) );
+
+    $general_metabox->add_field( array(
+      'name' => __( 'Pop-up Status', $domain ),
+      'desc' => __( 'Enable or disable the plugin.', $domain ),
+      'id' => $prefix . 'status',
+      'type' => 'radio_inline',
+      'default' => 'yes',
+      'options' => array(
+        'yes' => __( 'Turned ON', $domain ),
+        'no' => __( 'Turned OFF', $domain ),
+        ),
+      ) );
+
+    $general_metabox->add_field( array(
+      'name' => __( 'Show on mobile devices?', $domain ),
+      'desc' => __( 'The pop-up will be visible on mobile devices.', $domain ),
+      'id' => $prefix . 'show_on_mobile',
+      'type' => 'checkbox',
+      ) );
+
+    $general_metabox->add_field( array(
+      'name' => __( 'Show only on mobile devices?', $domain ),
+      'desc' => __( 'The pop-up will be visible on mobile devices only.', $domain ),
+      'id' => $prefix . 'show_only_on_mobile',
+      'type' => 'checkbox',
+      ) );
+
+    $general_metabox->add_field( array(
+      'name' => __( 'Show after', $domain ),
+      'desc' => __( 'seconds', $domain ),
+      'id' => $prefix . 'timer',
+      'type' => 'text_small',
+      'default' => '0' ) );
+
+    $general_metabox->add_field( array(
+      'name' => __( 'Show once per', $domain ),
+      'desc' => __( '', $domain ),
+      'id' => $prefix . 'show_only_once',
+      'type' => 'chch_pusf_cookie_select', 
+      'default' => 'refresh',
+
+      ) );
+
+    $general_metabox->add_field( array(
+      'name' => __( 'Auto close the pop-up after the sign-up', $domain ),
+      'desc' => __( '', $domain ),
+      'id' => $prefix . 'auto_closed',
+      'type' => 'checkbox',
+      ) );
+
+    $general_metabox->add_field( array(
+      'name' => __( 'Close after:', $domain ),
+      'desc' => __( 'seconds', $domain ),
+      'id' => $prefix . 'close_timer',
+      'type' => 'text_small',
+      'default' => '0' ) );
+
+    /**
+     * DISPLAY CONTROL
+     */
+    $display_metabox = new_cmb2_box( array(
+      'id' => 'chch-pu-metabox-control',
+      'title' => __( 'Display Control', $domain ),
+      'object_types' => array( 'chch-pusf' ),
+      'priority'   => 'low',
+      ) );
+
+    $display_metabox->add_field( array(
+      'name' => __( 'By Role:', $domain ),
+      'desc' => __( 'Decide who will see the pop-up.', $domain ),
+      'id' => $prefix . 'role',
+      'type' => 'radio',
+      'options' => array(
+        'all' => __( 'All', $domain ),
+        'unlogged' => __( 'Show to unlogged users', $domain ),
+        'logged' => __( 'Show to logged in users', $domain ),
+        ),
+      'default' => 'all' ) );
+
+    $display_metabox->add_field( array(
+      'name' => __( 'Disable on:', $domain ),
+      'desc' => __( 'Decide on which pages the pop-up will not be visible. <br> Hold the ctrl key and click to select the pages which should not display the pop-up.', $domain ),
+      'id' => $prefix . 'page',
+      'type' => 'chch_pusf_pages_select',
+      ) );
       
-			foreach($custom_pages as $value => $title):
-				$selected = '';
-				if(!empty($escaped_value) && is_array($escaped_value)){
-					if(in_array( $value,$escaped_value)) {
-						$selected = 'selected';	
-					} 
-				}
-			 	echo '<option value="'.$value.'" '.$selected .'>'.$title.'</option>	';
-			endforeach;
-      
-			foreach($all_pages as $value => $title):
-				$selected = '';
-				if(!empty($escaped_value) && is_array($escaped_value)){
-					if(in_array( $value,$escaped_value)) {
-						$selected = 'selected';	
-					} 
-				}
-			 	echo '<option value="'.$value.'" '.$selected .'>'.$title.'</option>	';
-			endforeach
-		 ?>
-			</select> 	 
-		<?php    
-		echo $field_type_object->_desc( true );
-	} 
+      /**
+     * Newsletter
+     */
+
+    $newsletter_metabox = new_cmb2_box( array(
+      'id' => 'chch-puf-metabox-newsletter',
+      'title' => __( 'Newsletter', $domain ),
+      'object_types' => array( 'chch-pusf' ),
+      'priority'   => 'low',
+      ) );
+
+    $newsletter_metabox->add_field( array(
+      'name' => __( 'Newsletter Status:', $domain ),
+      'desc' => __( 'Enable or disable newsletter subscribe form on the front-end.', $domain ),
+      'id' => $prefix . 'newsletter',
+      'type' => 'radio_inline',
+      'default' => 'yes',
+      'options' => array(
+        'yes' => __( 'Active', $domain ),
+        'no' => __( 'Inactive', $domain ),
+        ),
+      ) );
+
+      $newsletter_metabox->add_field( array(
+					'name' => __( 'Save emails to:', $domain  ),
+					'desc'    => __( '', $domain  ),
+					'id'   => $prefix . 'save_emails',
+					'type' => 'chch_pusf_newsletter_select', 
+				));
+
+    $newsletter_metabox->add_field( array(
+      'name' => __( 'E-mail Address:', $domain ),
+      'desc' => __( '<br>Subscription notifications will be sent to this email. If there is no email provided, admin email will be used.', $domain ),
+      'id' => $prefix . 'email',
+      'type' => 'text_medium',
+      ) );
+	}
 	
 	
 	/**
-	 * Return a cookie_select field for CMB
-	 *
-	 * @since     1.0.0
-	 * 
-	 */
-	function chch_pusf_render_cookie_select( $field_args, $escaped_value, $object_id, $object_type, $field_type_object ) {
-		$cookie_expire = array(
-			'refresh' => 'Refresh',
-			'session' => 'Session',
-			'Day' => 'Day (Available in Pro)',
-			'Week' => 'Week (Available in Pro)',
-			'Month' => 'Month (Available in Pro)',
-			'Year' => 'Year (Available in Pro)',	
-		);
-		?>
-		
-		<select class="cmb_select" name="<?php echo $field_args['_name']; ?>" id="<?php echo $field_args['_id']; ?>">	
-		
-		<?php
-			foreach($cookie_expire as $value => $title):
-				$selected = '';
-				$disable = '';
-				
-				if(!empty($escaped_value)){
-					if($value == $escaped_value) {
-						$selected = 'selected';	
-					} 
-				}
-				
-				if($value != 'refresh' && $value != 'session') {
-					$disable = 'disabled';	
-				}
-				
-			 	echo '<option value="'.$value.'" '.$selected .' '.$disable.'>'.$title.'</option>';
-			endforeach
-		 ?>
-		 
-		</select> <a href="http://ch-ch.org/puspro" target="_blank">Get Pro</a>
-				 
-		<?php    
-	}
+   * Return a pages_select field for CMB
+   *
+   * @since     1.0.0
+   * 
+   */
+  function chch_pusf_render_pages_select( $field, $escaped_value, $object_id, $object_type, $field_type_object ) {
+    $all_pages = $this->get_all_pages();
+    printf( "<select class=\"cmb_select\" name=\"%s[]\" id=\"%s\" multiple=\"multiple\">", $field->args( '_name' ), $field->args( '_name' ) );
+    $custom_pages = array(
+      'chch_home' => 'Home (Latest Posts)',
+      'chch_woocommerce_shop' => 'Woocommerce (Shop Page)',
+      'chch_woocommerce_category' => 'Woocommerce (Category Page)',
+      'chch_woocommerce_products' => 'Woocommerce (Single Product)',
+      );
+
+    foreach ( $custom_pages as $value => $title ):
+      $selected = '';
+      if ( !empty( $escaped_value ) && is_array( $escaped_value ) ) {
+        if ( in_array( $value, $escaped_value ) ) {
+          $selected = 'selected';
+        }
+      }
+      echo '<option value="' . $value . '" ' . $selected . '>' . $title . '</option>	';
+    endforeach;
+
+    foreach ( $all_pages as $value => $title ):
+      $selected = '';
+      if ( !empty( $escaped_value ) ) {
+        if ( in_array( $value, $escaped_value ) ) {
+          $selected = 'selected';
+        }
+      }
+      echo '<option value="' . $value . '" ' . $selected . '>' . $title . '</option>	';
+    endforeach;
+    echo '</select>';
+    echo '<p class="cmb_metabox_description">Decide on which pages the pop-up will not be visible. <br> Hold the ctrl key and click to select the pages which should not display the pop-up.</p>';
+
+  } 
+	
 	
 	/**
-	 * Return a pages_select field for CMB
-	 *
-	 * @since     1.0.0
-	 * 
-	 */
-	function chch_pusf_render_newsletter_select( $field_args, $escaped_value, $object_id, $object_type, $field_type_object ) {
-		$newsletter_expire = array(
-			'Email' => 'Email',
-			'MailChimp' => 'MailChimp (Available in Pro)',
-			'GetResponse' => 'GetResponse (Available in Pro)',
-			'CampaingMonitor' => 'CampaingMonitor (Available in Pro)',  	
-		);
-		?>
-		
-		<select class="cmb_select" name="<?php echo $field_args['_name']; ?>" id="<?php echo $field_args['_id']; ?>">	
-		
-		<?php
-			foreach($newsletter_expire as $value => $title):
-				$selected = '';
-				$disable = '';
-				
-				if(!empty($escaped_value)){
-					if($value == $escaped_value) {
-						$selected = 'selected';	
-					} 
-				}
-				
-				if($value != 'Email') {
-					$disable = 'disabled';	
-				}
-				
-			 	echo '<option value="'.$value.'" '.$selected .' '.$disable.'>'.$title.'</option>';
-			endforeach
-		 ?>
-		 
-		</select> <a href="http://ch-ch.org/puspro" target="_blank">Get Pro</a>
-				 
-		<?php    
-	}
+   * Return a cookie_select field for CMB
+   *
+   * @since     1.0.0
+   * 
+   */
+  function chch_pusf_render_cookie_select( $field, $escaped_value, $object_id, $object_type, $field_type_object ) {
+    $cookie_expire = array(
+      'refresh' => 'Refresh',
+      'session' => 'Session',
+      'Day' => 'Day (Available in Pro)',
+      'Week' => 'Week (Available in Pro)',
+      'Month' => 'Month (Available in Pro)',
+      'Year' => 'Year (Available in Pro)',
+      );
+    printf( "<select class=\"cmb_select\" name=\"%s\" id=\"%s\" >", $field->args( '_name' ), $field->args( '_name' ) );
+    foreach ( $cookie_expire as $value => $title ):
+      $selected = '';
+      $disable = '';
+
+      if ( !empty( $escaped_value ) ) {
+        if ( $value == $escaped_value ) {
+          $selected = 'selected';
+        }
+      }
+
+      if ( $value != 'refresh' && $value != 'session' ) {
+        $disable = 'disabled';
+      }
+
+      echo '<option value="' . $value . '" ' . $selected . ' ' . $disable . '>' . $title . '</option>';
+    endforeach;
+
+    echo '</select> <a href="http://ch-ch.org/puspro" target="_blank">Get Pro</a>';
+  }
+	
+	  /**
+   * Return a pages_select field for CMB
+   *
+   * @since     1.0.0
+   * 
+   */
+  function chch_pusf_render_newsletter_select( $field, $escaped_value, $object_id, $object_type, $field_type_object ) {
+    $newsletter_expire = array(
+      'Email' => 'Email',
+      'MailChimp' => 'MailChimp (Available in Pro)',
+      'GetResponse' => 'GetResponse (Available in Pro)',
+      'CampaingMonitor' => 'CampaingMonitor (Available in Pro)',
+      );
+
+    printf( "<select class=\"cmb_select\" name=\"%s\" id=\"%s\">", $field->args( '_name' ), $field->args( '_name' ) );
+
+    foreach ( $newsletter_expire as $value => $title ):
+      $selected = '';
+      $disable = '';
+
+      if ( !empty( $escaped_value ) ) {
+        if ( $value == $escaped_value ) {
+          $selected = 'selected';
+        }
+      }
+
+      if ( $value != 'Email' ) {
+        $disable = 'disabled';
+      }
+
+      echo '<option value="' . $value . '" ' . $selected . ' ' . $disable . '>' . $title . '</option>';
+    endforeach;
+
+    echo '</select> <a href="http://ch-ch.org/pupro" target="_blank">Get Pro</a>';
+
+  }
 	
 	/**
 	 * Remove help tabs from post view.
